@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Fees</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/w3.css">
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+<style type="text/css">
+#foot {
+	margin-top: auto;
+	margin-left: -750px;
+}
+
+#content {
+	margin-top: -30px;
+}
+
+#table {
+	margin-top: 130px;
+	margin-left: 200px;
+	text-align: center;
+	width: 1200px;
+	height: auto;
+}
+</style>
+</head>
+<body>
+	<div class="w3-food-peach" style="height: auto; width: auto;">
+		<div th:replace="fragments/headfoot::header"></div>
+		<center>
+			<h2>
+				<b style="color:black;">FEES STRUCTURE</b>
+			</h2>
+		</center>
+		<div id="content">
+			<br>
+			<br>
+			<div id="table1">
+				<center>
+					<table class="table"
+						style="font-size: 20px; width: 600px; margin-top: 40px; text-align: center; color:black;">
+						<thead>
+							<tr>
+								<th style="text-align: center;">S.no</th>
+								<th style="text-align: center;">Course</th>
+								<th style="text-align: center;">Course Fee<small>(*exam
+										fees included)</small></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="g:${get}">
+								<td th:text="${gStat.count}"></td>
+								<td th:text="${g.coursename}"></td>
+								<td>&#8377;<th:block th:text="${g.fees}"></td>
+							</tr>
+
+						</tbody>
+					</table>
+				</center>
+			</div>
+			
+		</div>
+		<div id="foot" style="margin-top: 80px;">
+			<div th:replace="fragments/headfoot::footer"></div>
+		</div>
+	</div>
+</body>
+</html>

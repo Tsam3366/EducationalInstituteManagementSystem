@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="https:www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>NoticeBoard</title>
+<style type="text/css">
+#content {
+	position: absolute;
+	margin-top: -0px;
+	width: 100%;
+}
+
+#foot {
+	margin-top: auto;
+	margin-left: -690px;
+}
+
+table {
+	text-align: center;
+}
+
+#foot {
+	margin-top: auto;
+	margin-left: -690px;
+}
+</style>
+<link href="/css/boot.min.css" rel="stylesheet">
+<script src="/js/bootstrap-select.min.js"></script>
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/style1.css">
+<link rel="stylesheet" href="/css/navbar.css">
+<link rel="stylesheet" href="/css/style.css">
+<script src="js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="/js/jquery.slim.min.js"></script>
+<script src="/js/jquery.popper.js"></script>
+
+</head>
+<body>
+	<div th:insert="fragments/headfoot::sidebar"></div>
+	<div id="content">
+		<div class='title' style="text-align: center;">
+			<h2>Notice Board Management</h2>
+			<br>
+			<br>
+		</div>
+		<form action="/savenotice">
+			<div style="margin-left: 400px;">
+				<div>
+					<label>Title</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="text" name="title" style="width: 561px;">
+				</div>
+				<br>
+				<br>
+				<div>
+					<label>Content</label>&nbsp;&nbsp;
+					<textarea rows="10" cols="80" name="details"></textarea>
+				</div>
+			</div>
+			<input type="Submit" value="save" style="margin-left: 700px;">
+		</form>
+		<br>
+		<br>
+		<div class="container-fluid">
+			<table class="table" style="text-align: center;">
+				<thead>
+					<tr>
+						<th style="text-align: center;">S.no</th>
+						<th style="text-align: center;">Date</th>
+						<th style="text-align: center;">Title</th>
+						<th style="text-align: center;">Content</th>
+						<th style="text-align: center;">Update</th>
+						<th style="text-align: center;">Delete</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="s:${get}">
+						<td th:text="${sStat.count}"></td>
+						<td th:text="${s.uploadDate}"></td>
+						<td th:text="${s.title}"></td>
+						<td th:text="${s.details}"></td>
+						<td><a th:href="@{/edit/{id}(id=${s.id})}"><img alt="update" src="images/upload.png" height="20px" weight="20px"></a></td>
+						<td><a th:href="@{/deletenotice/{id}(id=${s.id})}"><img alt="delete" src="images/dlticon.png" height="20px" weight="20px"></a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div id="foot">
+			<div th:replace="fragments/headfoot::footer"></div>
+		</div>
+	</div>
+</body>
+</html>

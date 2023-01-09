@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html xmlns:th="https:www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Staff page</title>
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/style1.css">
+<link rel="stylesheet" href="/css/navbar.css">
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="/css/bootstrap-select.min.css">
+<style type="text/css">
+
+
+.filter {
+	padding: 10px 20px 0px 90px;
+}
+
+#table {
+width:90%;
+margin-left:80px;
+}
+
+
+
+body {
+	
+	max-width: 100%;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+
+legend {
+	font-size: 14px;
+	font-weight: bold;
+	margin-bottom: 0px;
+	width: 35%;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	padding: 5px 5px 5px 10px;
+	background-color: #ffffff;
+}
+
+.container {
+	font-family: arial;
+	font-size: 24px;
+	margin: 25px;
+	width: 350px;
+	height: auto;
+}
+#allstud{position:absolute;margin-top:-27px;margin-left:520px;}
+#myInput{position: absolute;margin-left:650px;margin-top:-27px;width:250px;}
+#popup{
+position:absolute;
+height:50px;
+margin-top:-50px;
+margin-left:1000px;
+width:90px;}#count{position:absolute;margin-top:-32px;margin-left:1060px;}#foot{
+margin-top:auto;
+margin-left:-750px;
+}
+</style>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+
+</head>
+<body>
+<div th:replace="fragments/headfoot::sidebar"></div>
+	<div id="content">
+		<div class="filter">
+			<form action="/filterstud" method="post">
+				<select class="selectpicker" data-live-search="true" name="courses">
+					<option selected value="null">Courses</option>
+					<option value="Parichaya">Parichaya</option>
+					<option value="Prathamik">Prathamik</option>
+					<option value="Madhyama">Madhyama</option>
+					<option value="Rashtrabhasha">Rashtrabhasha</option>
+					<option value="Praveshika">Praveshika</option>
+					<option value="Visharad Poorvardh">Visharad Poorvardh</option>
+					<option value="Visharad Uttaradh">Visharad Uttaradh</option>
+					<option value="raveen Poorvardh">Praveen Poorvardh</option>
+					<option value="Praveen Uttaradh">Praveen Uttaradh</option>
+					<option value="English Lower">English Lower</option>
+					<option value="English Higher">English Higher</option>
+					<option value="Tamil Lower">Tamil Lower</option>
+					<option value="amil Higher">Tamil Higher</option>
+					<option value="C.O.A">C.O.A</option>
+				</select> 
+				<select class="selectpicker" data-live-search="true" name="timing">
+					<option selected value="null">Timing</option>
+					<option value="6.00A.M to 7.00AM">6.00A.M to 7.00AM</option>
+					<option value="7.00A.M to 8.00AM">7.00A.M to 8.00AM</option>
+					<option value="6.00P.M to 7.00PM">6.00P.M to 7.00PM</option>
+					<option value="7.00P.M to 8.00PM">7.00P.M to 8.00PM</option>
+				</select>
+				<input type="submit" value="Filter">
+			</form>
+			<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by Student names.." title="Type in a name">
+			<div>
+			</div>
+				<form action="/getall" method="post" id="allstud">
+					<button type="submit">ALL STUDENTS</button>
+				</form><img alt="popup" src="/images/popup.png" id="popup">
+				<div id="count">
+				<h4>Total no of students:&nbsp;&nbsp;&nbsp;<th:block th:text="${count}"></th:block></h4>
+					</div>
+			</div>
+			<div></div>
+			<div>
+				<div id="table">
+					<table id="myTable" class="table table-striped table-dark">
+						<thead>
+							<tr>
+								<th>S.No</th>
+								<th>Student Name</th>
+								<th>Father Name</th>
+								<th>Mother Name</th>
+								<th>Gender</th>
+								<th>Address</th>
+								<th style="width:7%;">D.O.B</th>
+								<th>E-Mail</th>
+								<th>Mobile</th>
+								<th>Applcation Date</th>
+								<th>Courses</th>
+								<th>Timing</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="s:${getall}">
+								<td th:text="${sStat.count}"></td>
+								<td th:text="${s.sname}"></td>
+								<td th:text="${s.mname}"></td>
+								<td th:text="${s.fname}"></td>
+								<td th:text="${s.gender}"></td>
+								<td th:text="${s.address}"></td>
+								<td th:text="${s.dob}"></td>
+								<td th:text="${s.email}"></td>
+								<td th:text="${s.mobile}"></td>
+								<td th:text="${s.admissionDate}"></td>
+								<td th:text="${s.courses}"></td>
+								<td th:text="${s.timing}"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+</div>
+<div id="foot">
+		<div th:replace="fragments/headfoot::footer"></div>
+	</div></div>
+<script>
+function myFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[1];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
+		
+</body>
+</html>

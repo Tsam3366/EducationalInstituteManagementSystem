@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Courses</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/w3.css">
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+<style type="text/css">
+* {
+	
+}
+
+#foot {
+	margin-top: auto;
+	margin-left: -750px;
+}
+
+#content {
+	margin-top: -30px;
+}
+
+#table {
+	margin-top: 130px;
+	margin-left: 200px;
+	text-align: center;
+	width: 1100px;
+	height: auto;
+}
+#address{
+position:absolute;
+margin-left:580px;
+margin-top:50px;
+font-size: 25px;
+width:300px;
+}
+</style>
+</head>
+<body class="w3-food-coffee">
+	<div  style="height: auto; width: auto;">
+		<div th:replace="fragments/headfoot::header"></div>
+		<center style="margin-left:-40px;">
+			<h3>
+				<b>ABOUT</b>
+			</h3>
+		</center><br><br>
+		<div id="content">
+			<div class="col-sm-4">
+			<center>	<div id="address" style="font-size:18px;">
+					<strong>Address:</strong><br> 
+					2A West Car Street, Chennai - 600 001<br>
+					<br> <strong>Phone:</strong><br> +91 8838173366<br>
+					<br> <strong>E-mail:</strong><br> <a href="#" style="color:white;">starksam3366	@gmail.com</a><br>
+				</div>
+			</div>
+			</center>
+		</div><div id="foot" style="margin-top: 550px;">
+				<div th:replace="fragments/headfoot::footer"></div>
+			</div>
+	</div>
+</body>
+</html>

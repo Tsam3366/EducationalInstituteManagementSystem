@@ -1,0 +1,20 @@
+@charset "ISO-8859-1";
+@import url('https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&display=swap');
+#title
+{
+	font-family:'Oleo Script Swash Caps', cursive;
+	color:white;
+	font-size: 30px;
+	padding-right: 5px;
+}
+#home{
+	margin-top:-20px;
+	filter: blur(4px);
+  -webkit-filter: blur(4px);
+}
+#stform{
+	margin-left:200px;
+}
+#regbutton{margin-left:350px;}
+#quote{margin-left:400px;margin-top:-30px;position: absolute;font-family: fantasy;font-size: 25px;color:white; 
+-webkit-text-stroke: 1px black;}

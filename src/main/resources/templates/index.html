@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Homepage</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/style.css">
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+<style type="text/css">
+#foot {
+	margin-top: auto;
+	margin-left: -750px;
+}
+
+#noticeboard {
+	position: absolute;
+	margin-top: 10x;
+	margin-left: 0px;
+	height: 100px;
+	width: 350px;
+}
+
+marquee {
+	height: 400px;
+	width: 200px;
+	margin-top: 50px;
+}
+</style>
+</head>
+<body>
+	<div th:replace="fragments/headfoot::header"></div>
+
+
+	<img id="home" alt="home.jpg" src="images/home.jpg" height="636px"
+		width="1535px"></img>
+	<div>
+		<div
+			style="opacity: 0.4; width: 310px; height: 480px; background: black; margin-left: 48px; margin-top: -580px; position: absolute;">
+
+			<div id="noticeboard">
+				<h4
+					style="color: white; font-family: sans-serif; font-size: 18px; margin-left: 30px; position: absolute; font-weight: bold; font-size: 20px;">Announcements
+					& Notices</h4>
+				<br>
+
+				<marquee direction="up" scrollamount="1"
+					style="margin-left: 58px; text-align: center; width: 200px;">
+					<table>
+						<tr th:each=g:${get}>
+							<h5 th:text="${g.details}" style="color: white; font-size: 18px;"></h5>
+							<div style="color: white; margin-top: -20px;">............................................................</div>
+						</tr>
+					</table>
+				</marquee>
+			</div>
+		</div>
+	</div>
+	<div id="quote">THE ROOTS OF EDUCATION ARE BITTER, BUT THE FRUIT
+		IS SWEET. &#8211;ARISTOTLE</div>
+	<div
+		style="position: absolute; color: yellow; margin-top: -200px; margin-left: 1100px; color: white; background: black; width: 330px;">
+		<h4 style="text-align: center;">Official Websites Links:</h4>
+		<ul>
+			<li><a href="https://www.dbhpscentral.org/introduction.html"
+				target="_blank" style="color: white;">Dhakshin Bharat Hindi
+					Prachara Sabha</a></li>
+			<li><a href="https://www.tndtegteonline.in/GTEOnline/"
+				target="_blank" style="color: white;">Govt. Technical Education
+					Website</a></li>
+
+		</ul>
+	</div>
+	<div id="foot">
+		<div th:replace="fragments/headfoot::footer"></div>
+	</div>
+</body>
+</html>

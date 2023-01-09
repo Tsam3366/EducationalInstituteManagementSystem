@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="https:www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Staff page</title>
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/style1.css">
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="/css/bootstrap-select.min.css">
+<link rel="stylesheet" href="/css/navbar.css">
+
+<style type="text/css">
+#content {
+	position: absolute;
+
+
+}
+body {
+ 	
+	max-width: 100%;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+#foot{
+margin-top:auto;
+margin-left:-690px;
+}
+legend {
+	font-size: 14px;
+	font-weight: bold;
+	margin-bottom: 0px;
+	width: 35%;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	padding: 5px 5px 5px 10px;
+	background-color: #ffffff;
+}
+
+.container {
+	font-family: arial;
+	font-size: 24px;
+	margin: 25px;
+	width: 350px;
+	height: auto;
+}
+h1{margin-left:520px;}
+img{margin-left:200px;margin-top:-20px;}
+</style>
+<script	src="/js/bootstrap-select.min.js"></script>
+</head>
+<body>
+<script th:inline="javascript">
+window.onload = function () {
+	
+var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+	
+	title:{
+		text:"Number of Students"
+	},
+	axisX:{
+		interval: 1
+	},
+	axisY2:{
+		interlacedColor: "rgba(1,77,101,.2)",
+		gridColor: "rgba(1,77,101,.1)",
+		title: "Course-Wise"
+	},
+	data: [{
+		type: "bar",
+		name: "courses",
+		axisYType: "secondary",
+		color: "#014D65",
+		dataPoints: [
+			{ y:/*[[${c1}]]*/"", label: "Parichaya" },
+			{ y:/*[[${c2}]]*/"", label: "Prathamik"},
+			{ y:/*[[${c3}]]*/"", label: "Madhyama"},
+			{ y:/*[[${c4}]]*/"", label: "Rashtrabhasha"},
+			{ y:/*[[${c5}]]*/"", label: "Praveshika"},
+			{ y:/*[[${c6}]]*/"", label: "V.Poorvardh"},
+			{ y:/*[[${c7}]]*/"", label: "V.Uttarardh"},
+			{ y:/*[[${c8}]]*/"", label: "P.Poorvardh"},
+			{ y:/*[[${c9}]]*/"", label: "P.Uttarardh"},
+			{ y:/*[[${c11}]]*/"", label: "English Lower"},
+			{ y:/*[[${c22}]]*/"", label: "English Higher"},
+			{ y:/*[[${c33}]]*/"", label: "Tamil Lower"},
+			{ y:/*[[${c44}]]*/"", label: "Tamil Higher"},
+			{ y:/*[[${c55}]]*/"", label: "C.O.A"}
+		]
+	}]
+});
+chart.render();
+
+}
+</script>	
+<div th:insert="fragments/headfoot::sidebar"></div>
+<script src="js/canvasjs.min.js"></script>
+<div id="chartContainer" style="height: 500px; width: 100%;"></div>
+<div id="foot">
+<div th:insert="fragments/headfoot::footer"></div>
+</div>
+
+</body>
+</html>

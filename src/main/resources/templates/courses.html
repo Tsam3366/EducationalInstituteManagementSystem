@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Courses</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/w3.css">
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+<style type="text/css">
+
+#foot {
+	margin-left: -750px;
+	margin-top: 150px;
+}
+
+#content {
+	margin-top: -50px;
+}
+#table{
+margin-top:110px;
+margin-left:200px;
+text-align:center;
+width:1100px;
+height:auto;
+font-size:18px;
+}
+</style>
+</head>
+<body >
+<div class="w3-food-egg" style="height:auto;width:auto;">
+	<div th:replace="fragments/headfoot::header"></div>
+	<center><h2><b>COURSE INFORMATION</b></h2></center>
+	<div id="content">
+		<table class="table" id="table">
+    <thead class="table-dark">
+        <tr>
+            <th style="text-align:center;">S.no</th>
+            <th style="text-align:center;">Course</th>
+            <th style="text-align:center;">Details</th>
+            <th style="text-align:center;">Duration</th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr>
+    		<td>1</td>
+    		<td><b>Hindi</b></td>
+    		<td>Total no. of papers:9<br>
+    		<br>Exam &nbsp;names:<br>&nbsp;Parichaya,Prathmik,Madhyama,Rashtrabasha,Praveshika,<br>
+    		Rashtrabasha Visharad Poorvardh,Rashtrabasha Visharad Uttarardh,<br>
+    		Rashtrabasha Praveen Poorvardh,Rashtrabasha Praveen Uttarardh</td>
+    		<td>4.5 Years
+    		<br>Six months per paper</td>
+    </tr>
+    <tr>
+    		<td>2</td>
+    		<td><b>Typewriting</b></td>
+    		<td>
+    		English Lower<br>
+    		English Higher<br>
+    		Tamil Lower<br>
+    		Tamil Higher	
+    		<br></td>
+			<td>Each six months</td>
+    		
+    </tr>
+    <tr>
+    		<td>3</td>
+    		<td><b>C.O.A<b></td>
+    		<td>Theory Paper<br>Practical Paper</td>
+    		<td>Six months</td>
+    		
+    </tr>
+    </tbody>
+    </table>
+	</div>
+	<div id="foot" style="margin-top:125px;">
+		<div th:replace="fragments/headfoot::footer"></div>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>select</title>
+<style type="text/css">
+#back
+{
+background:url(images/home.jpg);
+height:635px; width:1530px;
+margin-top:-20px;
+	filter: blur(8px);
+  -webkit-filter: blur(8px);
+
+}
+#staff{
+position:absolute;
+margin-top: -500px;
+margin-left: 280px;
+
+}
+#student{
+position:absolute;
+margin-top: -500px;
+margin-left:900px;
+
+}
+#foot{
+margin-top:auto;
+margin-left:-690px;
+}
+</style>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+ <link rel="stylesheet" href="css/style.css">
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+<div th:replace="fragments/headfoot::header"></div>
+		<div id="back"></div>
+			<a href="/staffloginview" id="staff"><img alt="staff" src="images/staff.jpg" height="300px" width="300px" style="border-radius: 20%;"></a>
+			<a href="/studentloginview" id="student"><img alt="student" src="images/student.png" height="300px" width="300px" style="border-radius: 20%;"></a>
+		<div id="foot"> 
+<div th:replace="fragments/headfoot::footer"></div>
+	</div>
+</body>
+</html>

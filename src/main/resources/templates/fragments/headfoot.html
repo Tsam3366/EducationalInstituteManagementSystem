@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+	<div th:fragment="header">
+		<nav class="navbar navbar-inverse" id="navhome" style="background: #AD8B65;">
+			<div class="container-fluid" >
+				<div class="navbar-header">
+					<p id="title"><img src="/images/logo.png " height="40px" width="80px"></img></p>
+				</div>
+				<ul class="nav navbar-nav" style="position:absolute;margin-top:1px;margin-left:980px;">
+					<li class="active" ><a href="/" style="background: #d2c3a3;color:black;"><b>Home</b></a></li>
+					<li class="active"><a href="/courses" style="background: #d2c3a3;color:black;"><b>Courses</b></a></li>
+					<li class="active"><a href="/feesstructure" style="background: #d2c3a3;color:black;"><b>Fees</b></a></li>
+					<li class="active"><a href="/about" style="background: #d2c3a3;color:black;"><b>About</b></a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="register" style=" -webkit-text-stroke: .5px white;font-family:monospace;font-size:25px;font-weight:bolder;  color:black;">REGISTER</a></li>
+					<li><a href="/viewlogin" style="-webkit-text-stroke: .5px white;font-family:monospace;font-size:25px;font-weight:bolder;  color:black;">LOGIN</a></li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+	<div th:fragment="footer">
+		<footer class="bg-light text-center text-lg-start">
+			<!-- Copyright Footer -->
+			<div class="text-center p-3">
+				<small style="text-align: center; margin-left: 700px;">&copy;
+					2022 Copyrights:Starksam Industries</small>
+			</div>
+			<!-- Copyright Footer-->
+		</footer>
+	</div>
+	<div th:fragment="sidebar">
+		<nav>
+			<ul>
+				<li>
+					<p><a href="/staffindex"><div>
+            <img alt="logo" src="images/logo.png" height="45px" width="80px" style="margin-left:-280px;">
+          </div></a>
+					<p>
+				</li>
+				<li><a href="/showregister">Add Student</a></li>
+				<li><a href="/getlist">Requests</a></li>
+				<li><a href="/getall">Student Details</a></li>
+				<li><a href="/attendance">Attendance</a></li>
+				<li><a href="/studymaterial">Study Material</a></li>
+				<li><a href="/feesview">Fees</a></li>
+				<li><a href="/managestud">Manage Students</a></li>
+				<li><a href="/notice">Notice Board</a></li>
+			</ul>
+			<a href="/stafflogout" class="button">Log Out</a>
+		</nav>
+	</div>
+	
+</body>
+</html>

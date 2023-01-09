@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<style type="text/css">
+.login-block {
+	float: left;
+	width: 100%;
+	padding: 50px 0;
+}
+
+.container {
+	background: #D3D3D3;
+	border-radius: 10px;
+	width: 40%;
+	height: 40%;
+}
+
+.login-sec {
+	padding: 50px 30px;
+	position: relative;
+}
+
+.login-sec h2 {
+	margin-bottom: 30px;
+	font-weight: 800;
+	font-size: 30px;
+	color: #0069c0;
+}
+#foot{
+margin-top:auto;
+margin-left:-690px;
+}
+.login-sec h2:after {
+	content: " ";
+	width: 100px;
+	height: 5px;
+	background: #6ec6ff;
+	display: block;
+	margin-top: 20px;
+	border-radius: 3px;
+	margin-left: auto;
+	margin-right: auto
+}
+
+.btn-login {
+	background: #0069c0;
+	color: #fff;
+	font-weight: 600;
+}
+</style>
+<meta charset="ISO-8859-1">
+<title>Students's Login</title>
+ <link rel="stylesheet" href="css/bootstrap.min.css">
+ <link rel="stylesheet" href="css/style.css">
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+</head>
+<body><div th:replace="fragments/headfoot::header"></div>
+	<section class="login-block">
+		<div class="container" style="width:550px;height:390px;">
+			<div class="row ">
+				<div class="col login-sec" style="padding-top:18px;">
+					<h2 class="text-center">Student's Login</h2>
+					<form class="login-form" method="post" th:action="@{/studlogin}" th:object="${stud}" action="#">
+						<div class="form-group">
+							<label for="exampleInputEmail1" class="text-uppercase">Username</label>
+							<input type="email" class="form-control" name="email" placeholder="email*" required>
+
+						</div>
+						<div class="form-group">
+							<label for="exampleInputPassword1" class="text-uppercase">Password</label>
+							<input type="Date" class="form-control" name="dob" placeholder="YYYY-MM-DD*" required>
+						</div>
+						<div class="form-row text-center"><p style="color:red;"th:text="${error2}"></p>
+						
+							<div class="col-12">
+								<input type="submit" class="btn btn-primary "> 
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+	<div id="foot"><div th:replace="fragments/headfoot::footer"></div></div>
+</body>
+</html>

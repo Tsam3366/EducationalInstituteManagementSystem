@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="https:www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>NoticeBoard</title>
+<style type="text/css">
+#content {
+	position: absolute;
+	margin-top: -0px;
+	width: 100%;
+}
+
+#foot {
+	margin-top: auto;
+	margin-left: -690px;
+}
+
+table {
+	text-align: center;
+}
+
+#foot {
+	margin-top: auto;
+	margin-left: -690px;
+}
+</style>
+<link href="/css/boot.min.css" rel="stylesheet">
+<script src="/js/bootstrap-select.min.js"></script>
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/style1.css">
+<link rel="stylesheet" href="/css/navbar.css">
+<link rel="stylesheet" href="/css/style.css">
+<script src="js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="/js/jquery.slim.min.js"></script>
+<script src="/js/jquery.popper.js"></script>
+
+</head>
+<body>
+	<div th:insert="fragments/headfoot::sidebar"></div>
+	<div id="content">
+		<div class='title' style="text-align: center;">
+			<h2>Notice Board Management</h2>
+			<br>
+			<br>
+		</div>
+		<form th:action="@{/updatenotice/{id}(id=${notice.id})}" th:object="${notice}">
+			<div style="margin-left: 400px;">
+				<div>
+					<label>Title</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="text" th:field="*{title}" style="width: 561px;color:black;font-size:18px;font-size:14px;font-family:monospace;">
+				</div>
+				<br>
+				<br>
+				<div>
+					<label>Content</label>&nbsp;&nbsp;
+					<textarea rows="10" cols="67" th:field="*{details}" style="font-family:monospace;"></textarea>
+				</div>
+			</div>
+			<input type="submit" value="Update" style="margin-left: 700px;">
+		</form>
+		<div id="foot">
+			<div th:replace="fragments/headfoot::footer"></div>
+		</div>
+	</div>
+</body>
+</html>

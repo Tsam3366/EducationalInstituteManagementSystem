@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="https:www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Edit fees</title>
+<style type="text/css">
+#content {
+	position: absolute;
+	margin-top: -0px;
+	width: 100%;
+}
+
+#foot {
+	margin-top: auto;
+	margin-left: -690px;
+}
+
+table {
+	text-align: center;
+}
+
+#foot {
+	margin-top: auto;
+	margin-left: -690px;
+}
+</style>
+<link href="/css/boot.min.css" rel="stylesheet">
+<script src="/js/bootstrap-select.min.js"></script>
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/style1.css">
+<link rel="stylesheet" href="/css/navbar.css">
+<link rel="stylesheet" href="/css/style.css">
+<script src="js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="/js/jquery.slim.min.js"></script>
+<script src="/js/jquery.popper.js"></script>
+
+
+</head>
+<body>
+	<div th:insert="fragments/headfoot::sidebar"></div>
+	<div id="content">
+	<h4><center>Fees Structure Management</center></h4><br><br>
+		<table class="table" style="width:500px;width:560px;margin-left:450px;">
+			<thead>
+				<tr>
+					<th style="text-align:center;">S.No</th>
+					<th style="text-align:center;">Course Name</th>
+					<th style="text-align:center;">Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="g:${get}">
+					<td th:text="${gStat.count}"></td>
+					<td th:text="${g.coursename}"></td>
+					<td>
+					<form action="/changefees">
+					<input type="hidden" name="id" th:value="${g.id}">
+					<input type="text" th:value="${g.fees}" style="width:100px;" name="fees">
+					<button type="submit" class="btn btn-primary btn-xs"	 >update</button>
+					</form>
+					</td>
+				</tr>
+			</tbody>
+
+		</table>
+		<div id="foot">
+			<div th:replace="fragments/headfoot::footer"></div>
+		</div>
+	</div>
+</body>
+</html>

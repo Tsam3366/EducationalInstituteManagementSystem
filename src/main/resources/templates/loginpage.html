@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<style type="text/css">@import url('https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&display=swap');
+
+.login-block {
+	float: left;
+	width: 100%;
+	padding: 50px 0;
+}
+
+.container {
+	background: #D3D3D3;
+	border-radius: 10px;
+	width: 40%;
+	height: 40%;
+}
+
+.login-sec {
+	padding: 50px 30px;
+	position: relative;
+}
+
+.login-sec h2 {
+	margin-bottom: 30px;
+	font-weight: 800;
+	font-size: 30px;
+	color: #0069c0;
+}
+#foot{
+margin-top:auto;
+margin-left:-690px;
+}
+.login-sec h2:after {
+	content: " ";
+	width: 100px;
+	height: 5px;
+	background: #6ec6ff;
+	display: block;
+	margin-top: 20px;
+	border-radius: 3px;
+	margin-left: auto;
+	margin-right: auto
+}
+.btn-login {
+	background: #0069c0;
+	color: #fff;
+	font-weight: 600;
+}
+</style>
+<meta charset="ISO-8859-1">
+<title>Staff's Login</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+ <link rel="stylesheet" href="css/style.css">
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+</head>
+<body><div th:replace="fragments/headfoot::header"></div>
+	<section class="login-block">
+		<div  style="width:550px;height:390px;" class="container">
+			<div class="row ">
+				<div class="col login-sec" style="padding-top:18px;">
+					<h2 class="text-center">Staff's Login</h2>
+					<p th:text="${mail}"></p>
+					<form class="login-form" method="post" action="stafflogin">
+						<div class="form-group">
+							<label for="exampleInputEmail1" class="text-uppercase">Username</label>
+							<input type="text" class="form-control" name="staffuser" placeholder="Username*">
+
+						</div>
+						<div class="form-group">
+							<label for="exampleInputPassword1" class="text-uppercase">Password</label>
+							<input type="password" class="form-control" name="staffpass" placeholder="Password*">
+						</div>
+<a type="button" data-toggle="modal" data-target="#exampleModal" style="margin-left:370px;">
+ Forgot Password?
+</a>
+						<div class="form-row text-center">
+						<p style="color:red;" th:text="${ERROR}"></p>
+							<div class="col-12">
+								<button type="submit" class="btn btn-primary ">Submit</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Password Recovery(*for admin use)</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <form action="/forgotpassword">
+      Hi Admin Enter you Personal mail id to get your password.....
+        <input type="email" name="email"/>
+        <button type="submit" class="btn btn-primary" style="margin-left:450px;margin-top:5px;cursor: pointer;">Get Password</button></form>
+      </div>
+      <div class="modal-footer">
+        
+      </div>
+    </div>
+  </div>
+</div>
+	<div id="foot">
+		<div th:replace="fragments/headfoot::footer"></div>
+	</div>
+	
+</body>
+</html>

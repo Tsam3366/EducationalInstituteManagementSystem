@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+
+<style type="text/css">
+body {
+	/* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, rgba(172, 203, 238, 0.5),
+		rgba(0, 231, 240, 0.5));
+	max-width: 100%;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+
+legend {
+	font-size: 14px;
+	font-weight: bold;
+	margin-bottom: 0px;
+	width: 35%;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	padding: 5px 5px 5px 10px;
+	background-color: #ffffff;
+}
+
+.container {
+	font-family: arial;
+	font-size: 24px;
+	margin: 25px;
+	width: 350px;
+	height: auto;
+}
+
+#foot {
+	margin-top: auto;
+	margin-left: -690px;
+}
+</style>
+<meta charset="ISO-8859-1">
+<title>Student Registration</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/style.css">
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="css/bootstrap-select.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/choices.min.css">
+<script
+	src="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/choices.min.js"></script>
+</head>
+<body>
+	<div th:replace="fragments/headfoot::header"></div>
+	<div class="container">
+		<legend style="text-align: center;">Student's Information</legend>
+
+		<form method="post" th:action="@{savestudent}" id="stform"
+			autocomplete="off" th:object="${stud}">
+			<center>
+				<h4>
+					<span class="text-success" th:utext="${successMessage}"></span>
+				</h4>
+			</center>
+			<center>
+				<h4>
+					<span class="text-success" th:utext="${failureMessage}"></span>
+				</h4>
+			</center>
+
+			<input type="hidden" name="status" value="Inactive">
+			<div class="formfields">
+				<div class="form-group row">
+					<label for="inputEmail3" class="col-sm-4 col-form-label">Name</label>
+					<div class="col-sm-6">
+						<input type="text" class="form-control"
+							placeholder="Student's Name" name="sname" required>
+					</div>
+				</div>
+				<div class="form-group row">
+					<label for="inputEmail3" class="col-sm-4 col-form-label">Mother's
+						Name</label>
+					<div class="col-sm-6">
+						<input type="text" class="form-control"
+							placeholder="Mother's Name" name="mname">
+					</div>
+				</div>
+				<div class="form-group row">
+					<label for="inputEmail3" class="col-sm-4 col-form-label">Father's
+						Name</label>
+					<div class="col-sm-6">
+						<input type="text" class="form-control"
+							placeholder="Father's Name" name="fname">
+					</div>
+				</div>
+				<div class="form-group row">
+					<label for="inputPassword3" class="col-sm-4 col-form-label">D.O.B</label>
+					<div class="col-sm-6">
+						<input type="date" data-date="" data-date-format="DD MMMM YYYY"
+							name="dob" max="2030-12-31" class="form-control" required>
+					</div>
+				</div>
+				<div class="form-group row">
+					<label class="col-form-label col-sm-4 pt-0">Address</label>
+					<div class="col-sm-6">
+						<textarea class="form-control" name="address"
+							id="exampleFormControlTextarea1" rows="3" required></textarea>
+					</div>
+				</div>
+				<div class="form-group row">
+					<label for="inputEmail3" class="col-sm-4 col-form-label">Email</label>
+					<div class="col-sm-6">
+						<input type="email" class="form-control" name="email"
+							id="inputEmail3" placeholder="Email" required>
+					</div>
+				</div>
+				<div class="form-group row">
+					<label for="inputEmail3" class="col-sm-4 col-form-label">Mobile</label>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" name="mobile"
+							id="inputEmail3" placeholder="Contact no." pattern="[0-9]{10}" required>
+					</div>
+				</div>
+
+				<div class="row">
+					<label class="col-form-label col-sm-4 pt-0">Gender</label>
+					<div class="col-sm-6">
+						<input class="form-check-input" type="radio" name="gender"
+							value="Male" required> <label class="form-check-label"
+							for="gridRadios1">Male</label> <input class="form-check-input"
+							type="radio" name="gender" value="Female"> <label
+							class="form-check-label" for="gridRadios2">Female</label>
+					</div>
+				</div>
+				<div class="form-group row">
+					<label class="col-sm-4">Courses</label>
+					<div class="col-sm-6">
+						<select class="custom-select" data-live-search="true"
+							id="choices-multiple-remove-button1" multiple name="courses"
+							placeholder="HINDI(*Select One Course)">
+							<option value="Parichaya">01-Parichaya</option>
+							<option value="Prathamik">02-Prathamik</option>
+							<option value="Madhyama">03-Madhyama</option>
+							<option value="Rashtrabhasha">04-Rashtrabhasha</option>
+							<option value="Praveshika">05-Praveshika</option>
+							<option value="Visharad Poorvardh">06-Visharad Poorvardh</option>
+							<option value="Visharad Uttaradh">07-Visharad Uttaradh</option>
+							<option value="Praveen Poorvardh">08-Praveen Poorvardh</option>
+							<option value="Praveen Uttaradh">09-Praveen Uttaradh</option>
+						</select> <select name="courses" id="choices-multiple-remove-button"
+							multiple placeholder="TYPEWRITTING">
+
+							<option value="English Lower">01-English Lower</option>
+							<option value="English Higher">02-English Higher</option>
+							<option value="Tamil Lower">03-Tamil Lower</option>
+							<option value="Tamil Higher">04-Tamil Higher</option>
+						</select> <input class="form-check-input" type="checkbox" name="courses"
+							value="C.O.A"> <label class="form-check-label"
+							style="font-size: 15px">Computer Office Automation</label>
+					</div>
+				</div>
+				<div class="row">
+					<label class="col-form-label col-sm-4 pt-0">Timing</label>&nbsp;&nbsp;
+					<small>(*Choose timing depending upon courses you have
+						selected)</small>
+					<div class="col-sm-6">
+						<input class="form-check-input" type="checkbox" name="timing"
+							value="6.00A.M to 7.00AM"> <label
+							class="form-check-label">6.00A.M to 7.00AM</label><br> <input
+							class="form-check-input" type="checkbox" name="timing"
+							value="7.00A.M to 8.00AM"> <label
+							class="form-check-label">7.00A.M to 8.00AM</label><br> <input
+							class="form-check-input" type="checkbox" name="timing"
+							value="6.00P.M to 7.00PM"> <label
+							class="form-check-label">6.00P.M to 7.00PM</label><br> <input
+							class="form-check-input" type="checkbox" name="timing"
+							value="7.00P.M to 8.00PM"> <label
+							class="form-check-label">7.00P.M to 8.00PM</label><br>
+					</div>
+				</div>
+				<br>
+			</div>
+			<button id="regbutton" type="submit" class="btn btn-primary">Register</button>
+
+		</form>
+	</div>
+	<script type="text/javascript">
+		$(document).ready(function(){
+		    
+		     var multipleCancelButton = new Choices('#choices-multiple-remove-button', {
+		        removeItemButton: true,
+		        maxItemCount:2,
+		        searchResultLimit:5,
+		        renderChoiceLimit:5
+		      }); 
+		     
+		     
+		 });
+		$(document).ready(function(){
+		    
+		     var multipleCancelButton = new Choices('#choices-multiple-remove-button1', {
+		        removeItemButton: true,
+		        maxItemCount:1,
+		        searchResultLimit:9,
+		        renderChoiceLimit:9
+		      }); 
+		     
+		     
+		 });
+</script>
+	<div id="foot">
+		<div th:replace="fragments/headfoot::footer"></div>
+	</div>
+</body>
+</html>
